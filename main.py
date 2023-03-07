@@ -13,4 +13,4 @@ def handle_command(user_input):
         print(f"Error command!\n    {exception}")
 
 while True:
-    handle_command(input(f"{os.getcwd() > }"))
+    handle_command(input(f"{os.getcwd()} > "))
