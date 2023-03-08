@@ -1,5 +1,6 @@
 import os
 
+# Utility shell commands
 def cat(args):
     for arg in args:
         with open(arg, "r") as file:
@@ -15,6 +16,7 @@ def cat(args):
             for (i, line) in enumerate(lines):
                 print("{} | {}".format(str(i + 1).zfill(line_count_digits), line.strip("\n")))
 
+# Ascii logo shell commands
 def banner(args):
     print("""
  mmmmm          mmmm  #             ''#    ''#                   mmmm 
