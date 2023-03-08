@@ -26,6 +26,16 @@ def banner(args):
         ''       
 """)
 
+def acat(args):
+    print(r"""
+   |\__/,|   (`\
+   |o o  |__ _)
+ _.( T   )  `  /
+((_ `^--' /_<  \
+`` `-'(((/  (((/
+
+""")
+
 aliases = {
     "ls"    :    "dir",
     "rm"    :    "del",
@@ -37,6 +47,7 @@ aliases = {
 shell_commands = {
     "banner" : banner,
     "cat"    : cat,
+    "acat"   : acat,
 }
 
 def handle_command(user_input):
