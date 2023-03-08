@@ -1,5 +1,11 @@
 import os
 
+colours = {
+    "default" : '\033[m',
+    "green"   : '\033[32m',
+    "red"     : '\033[40m',
+}
+
 # Utility shell commands
 def cat(args):
     for arg in args:
@@ -29,7 +35,7 @@ def cd(args):
 
 # Ascii logo shell commands
 def banner(args):
-    print("""
+    print(colours["green"] + """
  mmmmm          mmmm  #             ''#    ''#                   mmmm 
  #   '# m   m  #'   ' # mm    mmm     #      #           m   m  '   '#
  #mmm#' 'm m'  '#mmm  #'  #  #'  #    #      #           'm m'    mmm'
@@ -37,7 +43,7 @@ def banner(args):
  #       '#    'mmm#' #   #  '#mm'    'mm    'mm           #    'mmm#'
          m'                                                           
         ''       
-""")
+""" + colours["default"])
 
 def acat(args):
     print(r"""
@@ -80,7 +86,7 @@ def handle_command(user_input):
         else:
             os.system(f"{command} {args_as_string}")
     except Exception as exception:
-        print(f"Error command!\n    {exception}")
+        print(colours["red"] + f"Command error!\n    {exception}" + colours["default"])
 
 banner([])
 
