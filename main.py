@@ -1,5 +1,13 @@
 import os
 
+aliases = {
+    "ls"    :    "dir",
+    "rm"    :    "del",
+    "mv"    :    "move",
+    "clear" :    "cls",
+    "py"    :    "python",
+}
+
 def handle_command(user_input):
     command = user_input.split(" ")[0]
     args = user_input.split(" ")[1:]
