@@ -1,12 +1,21 @@
+import ctypes
 import os
 
 colours = {
     "default" : '\033[m',
     "green"   : '\033[32m',
-    "red"     : '\033[40m',
+    "red"     : '\033[31m',
 }
 
 # Utility shell commands
+def dll(args):
+    for arg in args:
+        dll = ctypes.cdll.LoadLibrary(os.path.realpath(arg))
+
+        dll.main()
+
+        del dll
+
 def cat(args):
     for arg in args:
         with open(arg, "r") as file:
@@ -69,6 +78,7 @@ shell_commands = {
     "acat"   : acat,
     "touch"  : touch,
     "cd"     : cd,
+    "dll"    : dll,
 }
 
 def handle_command(user_input):
