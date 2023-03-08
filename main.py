@@ -1,5 +1,20 @@
 import os
 
+def cat(args):
+    for arg in args:
+        with open(arg, "r") as file:
+            lines = file.readlines()
+            line_count = len(lines)
+            line_count_digits = len(str(line_count))
+
+            if line_count > 0 and not lines[0] == "":
+                print(f"Loaded {line_count} line.\n")
+            else:
+                print("Empty file detected")
+
+            for (i, line) in enumerate(lines):
+                print("{} | {}".format(str(i + 1).zfill(line_count_digits), line.strip("\n")))
+
 def banner(args):
     print("""
  mmmmm          mmmm  #             ''#    ''#                   mmmm 
@@ -21,6 +36,7 @@ aliases = {
 
 shell_commands = {
     "banner" : banner,
+    "cat"    : cat,
 }
 
 def handle_command(user_input):
