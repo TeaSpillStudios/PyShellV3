@@ -42,6 +42,23 @@ def cd(args):
     for arg in args:
         os.chdir(arg)
 
+# Help commands
+def shelp(args):
+    print(colours["green"] + "Shell commands:\n")
+
+    for shell_command in shell_commands:
+        print(shell_command)
+
+    print(colours["default"])
+
+def ahelp(args):
+    print(colours["green"] + "Aliases:\n")
+
+    for alias in aliases:
+        print(alias)
+
+    print(colours["default"])
+
 # Ascii logo shell commands
 def banner(args):
     print(colours["green"] + """
@@ -79,6 +96,8 @@ shell_commands = {
     "touch"  : touch,
     "cd"     : cd,
     "dll"    : dll,
+    "shelp"  : shelp,
+    "ahelp"  : ahelp,
 }
 
 def handle_command(user_input):
@@ -99,6 +118,12 @@ def handle_command(user_input):
         print(colours["red"] + f"Command error!\n    {exception}" + colours["default"])
 
 banner([])
+
+print("""
+For help use:
+    ahelp - For help on aliases
+    shelp - For help on shell commands
+""")
 
 while True:
     handle_command(input(f"{os.getcwd()} > "))
