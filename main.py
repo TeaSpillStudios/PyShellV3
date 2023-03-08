@@ -16,6 +16,13 @@ def cat(args):
             for (i, line) in enumerate(lines):
                 print("{} | {}".format(str(i + 1).zfill(line_count_digits), line.strip("\n")))
 
+def touch(args):
+    for arg in args:
+        print("Creating file {arg}")
+
+        with open(arg, "w") as f:
+            f.close()
+
 # Ascii logo shell commands
 def banner(args):
     print("""
@@ -50,6 +57,7 @@ shell_commands = {
     "banner" : banner,
     "cat"    : cat,
     "acat"   : acat,
+    "touch"  : touch,
 }
 
 def handle_command(user_input):
