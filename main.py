@@ -23,6 +23,10 @@ def touch(args):
         with open(arg, "w") as f:
             f.close()
 
+def cd(args):
+    for arg in args:
+        os.chdir(arg)
+
 # Ascii logo shell commands
 def banner(args):
     print("""
@@ -58,6 +62,7 @@ shell_commands = {
     "cat"    : cat,
     "acat"   : acat,
     "touch"  : touch,
+    "cd"     : cd,
 }
 
 def handle_command(user_input):
