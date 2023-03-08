@@ -15,6 +15,8 @@ def handle_command(user_input):
     try:
         if command == "exit":
             exit()
+        elif command in aliases:
+            os.system(f"{aliases[command]} {''.join(args)}")
         else:
             os.system(f"{command} {''.join(args)}")
     except Exception as exception:
